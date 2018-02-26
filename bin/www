@@ -104,8 +104,8 @@ function onListening()
     debug('Listening on ' + bind);
 }
 
-const queueIp = "192.168.50.4";
 
+const queueIp = process.env.API_QUEUE || "192.168.50.4";
 amqp.connect('amqp://test:test@' + queueIp + ':5672', function(err, conn)
 {
     conn.createChannel(function(err, ch)
